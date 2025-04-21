@@ -1,0 +1,25 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[requires]
+python_version = "3.11"
+
+[packages]
+django = "5.2"  # Última versión estable
+djangorestframework = "3.15"  # Compatible con Django 5.2
+mysqlclient = "2.2"  # Soporte para MySQL
+python-decouple = "3.8"  # Gestión de variables de entorno
+django-cors-headers = "4.1"  # Manejo de CORS
+drf-yasg = "1.21"  # Documentación Swagger, actualizada para compatibilidad
+
+[dev-packages]
+pytest-django = "4.8.0"  # Compatible con Django 5.x
+black = "23.9.1"  # Formateador de código
+isort = "5.12.0"  # Organización de imports
+
+[scripts]
+start = "python manage.py runserver"
+migrate = "python manage.py migrate"
+createsuperuser = "python manage.py createsuperuser"
