@@ -12,7 +12,7 @@ djangorestframework = "3.15"  # Compatible con Django 5.2
 mysqlclient = "2.2"  # Soporte para MySQL
 python-decouple = "3.8"  # Gestión de variables de entorno
 django-cors-headers = "4.1"  # Manejo de CORS
-drf-yasg = "1.21"  # Documentación Swagger, actualizada para compatibilidad
+drf-spectacular = "*"
 
 [dev-packages]
 pytest-django = "4.8.0"  # Compatible con Django 5.x
