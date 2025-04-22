@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "apps.organizers",
+    "apps.users",
     "drf_spectacular",
 ]
 

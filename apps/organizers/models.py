@@ -4,6 +4,11 @@ from django.db import models
 from django.utils.timezone import now
 
 
+class OrganizerQuerySet(models.QuerySet):
+    def active(self):
+        return self.filter(deleted__isnull=True)
+
+
 class Organizer(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     external_id = models.CharField(max_length=50, null=True, blank=True)
@@ -18,7 +23,7 @@ class Organizer(models.Model):
         self.deleted = now()
         self.save()
 
-    objects = models.Manager()
+    objects = OrganizerQuerySet.as_manager()
 
     class Meta:
         db_table = "organizers"
