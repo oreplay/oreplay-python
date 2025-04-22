@@ -7,7 +7,7 @@ from .serializers import OrganizerSerializer
 
 
 class OrganizerViewSet(viewsets.ModelViewSet):
-    queryset = Organizer.objects.filter(deleted__isnull=True)
+    queryset = Organizer.objects.active()
     serializer_class = OrganizerSerializer
 
     @token_required
@@ -21,7 +21,3 @@ class OrganizerViewSet(viewsets.ModelViewSet):
     @token_required
     def destroy(self, request, *args, **kwargs):
         return super().destroy(request, *args, **kwargs)
-
-    @token_required
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)

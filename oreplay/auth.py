@@ -16,6 +16,7 @@ def token_required(func):
     @wraps(func)
     def wrapper(view, request, *args, **kwargs):
         token = request.headers.get("Authorization")
+        print(token)
         if not token:
             return JsonResponse({"error": "Token missing"}, status=401)
 
