@@ -1,0 +1,54 @@
+name: Run Tests and Upload to SonarCloud
+
+on:
+  pull_request:
+    branches:
+      - main  # or your default branch, e.g., 'develop'
+
+jobs:
+  sonarcloud:
+    name: Run Tests, Generate Coverage, and Upload to SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Python
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'  # Choose the Python version that matches your project
+
+      # Install pipenv
+      - name: Install pipenv
+        run: |
+          python -m pip install --upgrade pip
+          pip install pipenv
+
+      # Install dependencies using pipenv
+      - name: Install dependencies with Pipenv
+        run: |
+          pipenv install --dev  # This installs both default and development dependencies
+
+      # Run tests and generate coverage report using pipenv and pytest
+      - name: Run tests with coverage
+        run: |
+          pipenv run coverage run -m pytest  # Run tests with coverage tracking
+          pipenv run coverage report  # Show coverage in the console
+          pipenv run coverage xml -o coverage.xml  # Generate the coverage report in XML format
+
+      # # Set up SonarCloud
+      # - name: SonarCloud Scan
+      #   uses: sonarsource/sonarcloud-github-action@v1.0
+      #   with:
+      #     organization: ${{ secrets.SONAR_ORG }}
+      #     token: ${{ secrets.SONAR_TOKEN }}
+
+      # # Upload the coverage report to SonarCloud
+      # - name: Upload coverage to SonarCloud
+      #   run: |
+      #     curl -X POST \
+      #     -u ${{ secrets.SONAR_TOKEN }}: \
+      #     -F "file=@coverage.xml" \
+      #     "https://sonarcloud.io/api/qualityprofiles/add_project"
