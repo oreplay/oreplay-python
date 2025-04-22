@@ -3,7 +3,8 @@ name: Run Tests and Upload to SonarCloud
 on:
   pull_request:
     branches:
-      - main  # or your default branch, e.g., 'develop'
+      - main
+      - develop
 
 jobs:
   sonarcloud:
@@ -37,18 +38,3 @@ jobs:
           pipenv run coverage run -m pytest  # Run tests with coverage tracking
           pipenv run coverage report  # Show coverage in the console
           pipenv run coverage xml -o coverage.xml  # Generate the coverage report in XML format
-
-      # # Set up SonarCloud
-      # - name: SonarCloud Scan
-      #   uses: sonarsource/sonarcloud-github-action@v1.0
-      #   with:
-      #     organization: ${{ secrets.SONAR_ORG }}
-      #     token: ${{ secrets.SONAR_TOKEN }}
-
-      # # Upload the coverage report to SonarCloud
-      # - name: Upload coverage to SonarCloud
-      #   run: |
-      #     curl -X POST \
-      #     -u ${{ secrets.SONAR_TOKEN }}: \
-      #     -F "file=@coverage.xml" \
-      #     "https://sonarcloud.io/api/qualityprofiles/add_project"
