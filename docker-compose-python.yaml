@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  nginx:
+    image: oreplay/backend-python:0.0.1a8
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    #command: sh -c "tail -f /dev/null"
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/app/
+    env_file:
+      - .env.example
+      #- .env # TODO do not commit
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
