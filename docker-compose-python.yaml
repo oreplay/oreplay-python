@@ -6,13 +6,17 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
-    #command: sh -c "tail -f /dev/null"
     ports:
-      - '8000:8000'
+      - '8888:8888'
     volumes:
       - .:/app/
     env_file:
       - .env.example
-      #- .env # TODO do not commit
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    networks:
+      - oreplay_backend_oreplay_network
+
+networks:
+  oreplay_backend_oreplay_network:
+    external: true

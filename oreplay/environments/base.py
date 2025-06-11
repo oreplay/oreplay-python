@@ -38,7 +38,7 @@ DATABASES = {
         "NAME": config("MYSQL_DATABASE", default="app_rest"),
         "USER": config("MYSQL_USER", default="root"),
         "PASSWORD": config("MYSQL_PASSWORD", default="password"),
-        "HOST": config("MYSQL_HOST", default="127.0.0.1"),
+        "HOST": config("MYSQL_HOST", default="mysql"),
         "PORT": config("MYSQL_PORT", default="13307"),
     }
 }
