@@ -8,7 +8,7 @@ python_version = "3.11"
 
 [packages]
 django = "5.2"  # Última versión estable
-djangorestframework = "3.15"  # Compatible con Django 5.2
+djangorestframework = "*"  # Compatible con Django 5.2
 mysqlclient = "2.2"  # Soporte para MySQL
 python-decouple = "3.8"  # Gestión de variables de entorno
 django-cors-headers = "4.1"  # Manejo de CORS
@@ -16,6 +16,8 @@ drf-spectacular = "*"
 pytest = "*"
 pytest-django = "*"
 pytest-cov = "*"
+channels = "*"
+channels-redis = "*"
 
 [dev-packages]
 pytest-django = "4.8.0"  # Compatible con Django 5.x

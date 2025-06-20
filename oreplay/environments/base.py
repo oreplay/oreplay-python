@@ -55,7 +55,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "apps.organizers",
     "apps.users",
+    "apps.websocket",
     "drf_spectacular",
+    "channels",
 ]
 
 MIDDLEWARE = [
@@ -154,4 +156,17 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
     # OTHER SETTINGS
+}
+
+
+# Channels settings
+ASGI_APPLICATION = "oreplay.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
 }
