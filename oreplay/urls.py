@@ -22,7 +22,7 @@ from drf_spectacular.views import (SpectacularAPIView, SpectacularRedocView,
 
 from .environments.base import API_VERSION
 
-api_url = f"api/{API_VERSION}/"
+api_url = f"apy/{API_VERSION}/"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
