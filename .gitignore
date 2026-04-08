@@ -172,3 +172,9 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Ignore the results/ directory if it contains generated files or outputs that should not be committed to version control.
+results/
+
+# Ignore the requirements.txt file if it contains sensitive information such as private package indexes or credentials.
+requirements.txt
