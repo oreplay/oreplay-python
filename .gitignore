@@ -176,5 +176,38 @@ cython_debug/
 # Ignore the results/ directory if it contains generated files or outputs that should not be committed to version control.
 results/
 
+# Exceptions for new apps - all apps should be tracked
+!apps/classes/
+!apps/classes/**
+!apps/clubs/
+!apps/clubs/**
+!apps/controls/
+!apps/controls/**
+!apps/courses/
+!apps/courses/**
+!apps/events/
+!apps/events/**
+!apps/federations/
+!apps/federations/**
+!apps/rawuploads/
+!apps/rawuploads/**
+!apps/resulttypes/
+!apps/resulttypes/**
+!apps/runners/
+!apps/runners/**
+!apps/splits/
+!apps/splits/**
+!apps/stages/
+!apps/stages/**
+!apps/teams/
+!apps/teams/**
+!apps/tokens/
+!apps/tokens/**
+!apps/uploadlogs/
+!apps/uploadlogs/**
+!apps/usersevents/
+!apps/usersevents/**
+!apps/shared_models.py
+
 # Ignore the requirements.txt file if it contains sensitive information such as private package indexes or credentials.
 requirements.txt

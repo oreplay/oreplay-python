@@ -13,6 +13,7 @@ mysqlclient = "2.2"  # Soporte para MySQL
 python-decouple = "3.8"  # Gestión de variables de entorno
 django-cors-headers = "==4.9.0"  # Manejo de CORS (actualizado)
 drf-spectacular = "*"
+bcrypt = "*"
 setuptools = "==82.0.1"
 wheel = "==0.46.3"
 
