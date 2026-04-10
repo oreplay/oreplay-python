@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []  # Se configurará en local.py o production.py
 
 API_VERSION = config("API_VERSION", default="v1")
 
+AUTH_USER_MODEL = "users.User"
+
 # Base de datos (esto se puede hacer en local.py también)
 DATABASES = {
     "default": {
@@ -53,8 +55,31 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "apps.organizers",
+    # Core apps
     "apps.users",
+    "apps.organizers",
+    # Event and structure apps
+    "apps.federations",
+    "apps.events",
+    "apps.stages",
+    "apps.courses",
+    "apps.controls",
+    "apps.classes",
+    # Team and club apps
+    "apps.clubs",
+    "apps.teams",
+    # Participant apps
+    "apps.runners",
+    # Result apps
+    "apps.resulttypes",
+    "apps.splits",
+    # Administrative apps
+    "apps.tokens",
+    "apps.uploadlogs",
+    "apps.rawuploads",
+    "apps.rankings",
+    "apps.usersevents",
+    # Third-party
     "drf_spectacular",
 ]
 
