@@ -7,7 +7,7 @@ from .models import UsersEvents
 @admin.register(UsersEvents)
 class UsersEventsAdmin(TimestampedModelAdmin):
     list_display = ["user", "event", "created"]
-    search_fields = ["user__username", "event__description"]
+    search_fields = ["user__email", "event__description"]
     list_filter = ["event"]
     list_select_related = ["user", "event"]
     list_per_page = 50
