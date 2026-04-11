@@ -27,17 +27,16 @@ class ClassesAdmin(TimestampedModelAdmin):
 @admin.register(ClassesControls)
 class ClassesControlsAdmin(TimestampedModelAdmin):
     list_display = [
-        "id",
         "event",
         "stage",
-        "klass",
+        "control_class",
         "control",
         "order_number",
         "created",
     ]
     search_fields = ["order_number"]
     list_filter = ["event", "stage", "order_number"]
-    list_select_related = ["event", "stage", "klass", "control"]
+    list_select_related = ["event", "stage", "control_class", "control"]
     list_per_page = 50
     show_full_result_count = False
     ordering = ["-created"]

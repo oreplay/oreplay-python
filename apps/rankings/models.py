@@ -3,6 +3,7 @@ from django.db import models
 
 class Ranking(models.Model):
     id = models.CharField(max_length=36, primary_key=True)
+    scoring_algorithm = models.CharField(max_length=150)
     event = models.ForeignKey(
         "events.Events",
         on_delete=models.DO_NOTHING,
@@ -31,7 +32,6 @@ class Ranking(models.Model):
     )
     status_scores = models.TextField(null=True, blank=True)
     excluded_class_names = models.TextField(null=True, blank=True)
-    overall_settings = models.TextField(null=True, blank=True)
     created = models.DateTimeField(null=True, blank=True)
     modified = models.DateTimeField(null=True, blank=True)
     deleted = models.DateTimeField(null=True, blank=True)

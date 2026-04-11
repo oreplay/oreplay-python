@@ -21,7 +21,7 @@ class Runners(BaseUnmanagedModel):
     )
     first_name = models.CharField(max_length=150, null=True, blank=True)
     last_name = models.CharField(max_length=150, null=True, blank=True)
-    klass = models.ForeignKey(
+    entry_class = models.ForeignKey(
         "classes.Classes",
         on_delete=models.DO_NOTHING,
         db_column="class_id",
@@ -86,7 +86,7 @@ class RunnerResults(BaseUnmanagedModel):
         blank=True,
         related_name="runner_results_rows",
     )
-    klass = models.ForeignKey(
+    entry_class = models.ForeignKey(
         "classes.Classes",
         on_delete=models.DO_NOTHING,
         db_column="class_id",
@@ -128,8 +128,6 @@ class RunnerResults(BaseUnmanagedModel):
     )
     stage_order = models.IntegerField(null=True, blank=True)
     leg_number = models.IntegerField(null=True, blank=True)
-    is_nc = models.BooleanField(default=False)
-    contributory = models.BooleanField(default=False)
     note = models.TextField(null=True, blank=True)
 
     class Meta(BaseUnmanagedModel.Meta):

@@ -40,6 +40,7 @@ class Classes(BaseUnmanagedModel):
 
 
 class ClassesControls(BaseUnmanagedModel):
+    id = None
     event = models.ForeignKey(
         "events.Events",
         on_delete=models.DO_NOTHING,
@@ -56,12 +57,11 @@ class ClassesControls(BaseUnmanagedModel):
         blank=True,
         related_name="classes_controls_rows",
     )
-    klass = models.ForeignKey(
+    control_class = models.ForeignKey(
         "Classes",
         on_delete=models.DO_NOTHING,
         db_column="class_id",
-        null=True,
-        blank=True,
+        primary_key=True,
         related_name="classes_controls_rows",
     )
     control = models.ForeignKey(
@@ -78,8 +78,4 @@ class ClassesControls(BaseUnmanagedModel):
         db_table = "classes_controls"
 
     def __str__(self):
-        return (
-            f"ClassControl {self.order_number}"
-            if self.order_number
-            else f"ClassControl {self.id}"
-        )
+        return f"ClassControl {self.control_class_id}:{self.control_id}:{self.order_number}"

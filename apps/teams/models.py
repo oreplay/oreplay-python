@@ -20,7 +20,7 @@ class Teams(BaseUnmanagedModel):
         related_name="teams_rows",
     )
     team_name = models.CharField(max_length=255, null=True, blank=True)
-    klass = models.ForeignKey(
+    entry_class = models.ForeignKey(
         "classes.Classes",
         on_delete=models.DO_NOTHING,
         db_column="class_id",
@@ -72,7 +72,7 @@ class TeamResults(BaseUnmanagedModel):
         blank=True,
         related_name="team_results_rows",
     )
-    klass = models.ForeignKey(
+    entry_class = models.ForeignKey(
         "classes.Classes",
         on_delete=models.DO_NOTHING,
         db_column="class_id",
@@ -113,9 +113,6 @@ class TeamResults(BaseUnmanagedModel):
         max_digits=12, decimal_places=3, null=True, blank=True
     )
     stage_order = models.IntegerField(null=True, blank=True)
-    leg_number = models.IntegerField(null=True, blank=True)
-    is_nc = models.BooleanField(default=False)
-    contributory = models.BooleanField(default=False)
     note = models.TextField(null=True, blank=True)
 
     class Meta(BaseUnmanagedModel.Meta):
