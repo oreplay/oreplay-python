@@ -11,7 +11,7 @@ class TeamsAdmin(TimestampedModelAdmin):
         "event",
         "stage",
         "team_name",
-        "klass",
+        "entry_class",
         "club",
         "bib_number",
         "is_nc",
@@ -19,7 +19,7 @@ class TeamsAdmin(TimestampedModelAdmin):
     ]
     search_fields = ["team_name"]
     list_filter = ["event", "stage", "is_nc"]
-    list_select_related = ["event", "stage", "klass", "club"]
+    list_select_related = ["event", "stage", "entry_class", "club"]
     list_per_page = 50
     show_full_result_count = False
     ordering = ["-created"]
@@ -32,24 +32,21 @@ class TeamResultsAdmin(TimestampedModelAdmin):
         "event",
         "stage",
         "team",
-        "klass",
+        "entry_class",
         "position",
         "status_code",
         "time_seconds",
         "points_final",
-        "is_nc",
         "created",
     ]
     search_fields = ["team__team_name"]
     list_filter = [
         "event",
         "stage",
-        "is_nc",
-        "contributory",
         "status_code",
         "result_type",
     ]
-    list_select_related = ["event", "stage", "team", "klass", "result_type"]
+    list_select_related = ["event", "stage", "team", "entry_class", "result_type"]
     list_per_page = 50
     show_full_result_count = False
     ordering = ["-created"]

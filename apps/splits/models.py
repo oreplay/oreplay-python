@@ -43,7 +43,7 @@ class Splits(BaseUnmanagedModel):
         blank=True,
         related_name="splits_rows",
     )
-    klass = models.ForeignKey(
+    entry_class = models.ForeignKey(
         "classes.Classes",
         on_delete=models.DO_NOTHING,
         db_column="class_id",

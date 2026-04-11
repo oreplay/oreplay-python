@@ -23,4 +23,3 @@ class RankingAdmin(TimestampedModelAdmin):
         "status_scores",
         "excluded_class_names",
     )
-    list_select_related = ("event", "stage")

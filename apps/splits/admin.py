@@ -25,7 +25,7 @@ class SplitsAdmin(TimestampedModelAdmin):
         "runner",
         "runner_result",
         "team_result",
-        "class_",
+        "entry_class",
         "control",
     ]
     list_per_page = 50
